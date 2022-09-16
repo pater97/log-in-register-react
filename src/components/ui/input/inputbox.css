@@ -1,0 +1,62 @@
+/* stile input */
+.inputBox:focus {
+    offset: none;
+    outline: none;
+}
+
+.inputBox::placeholder {
+    color: #999999;
+    font-weight: 420;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+input::-webkit-input-placeholder {
+    color: #999999;
+}
+
+input:-moz-placeholder {
+    color: #999999;
+}
+
+input::-moz-placeholder {
+    color: #999999;
+}
+
+input:-ms-input-placeholder {
+    color: #999999;
+}
+
+.inputBox {
+    font-family: 'Raleway-SemiBold', sans-serif;
+    position: absolute;
+    display: block;
+    height: 100%;
+    border-radius: 5px;
+    padding-left: 70px;
+    color: #666666;
+    background: #e6e6e6;
+    border: none;
+}
+.inputBox::placeholder{
+    font-weight: 500;
+    color: #acacac;
+    font-size: 18px;
+}
+.inputDiv i{
+    margin-bottom: 0.4rem;
+}

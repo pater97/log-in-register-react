@@ -1,0 +1,345 @@
+/* import css */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+
+/*Class per i container*/
+.loginContainer ,.registerContainer, .homeContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 77px 50px 30px;
+  border-radius: 3px;
+  background-color: white;
+  margin: 15px 0;
+  z-index: 10;
+  width: 450px;
+}
+
+
+
+/*Classe contente le inputbox, il checkbox e il bottone di login*/
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+/*titolo pagina LOGIN*/
+.loginTitle,.registerTitle {
+  color: #333333;
+  font-family: 'Raleway-Black', sans-serif;
+  font-weight: 900;
+  padding-bottom: 55px;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+
+/*Div con checkbox e label cliccabile per ricordare i dati*/
+.rememberMe,.policy {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 4px;
+}
+
+
+/*Classe assegnata alla label con dentro la checkbox*/
+.inputCheckbox {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  width: fit-content;
+  
+}
+
+
+/*Classi assegnate per dare lo stile alla checkbox*/
+.inputCheckbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border: 2px solid #d33f8d;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.inputCheckbox input:checked~.checkmark:after {
+  display: block;
+}
+
+.inputCheckbox .checkmark:after {
+  left: 4px;
+  width: 4px;
+  height: 9px;
+  border: solid #d33f8d;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+/*Div contente il bottone di login*/
+.buttonForm {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+
+/*Div contenente i bottoni di facebook e google*/
+.loginWith {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%
+}
+
+
+/*Per colorare le frasi di remember me e login with*/
+.loginWithP,
+.rememberMe,.policy {
+  color: #999;
+  font-family: "Raleway";
+  font-weight: 400;
+}
+
+.loginWithP {
+  padding-bottom: 22px;
+  padding-top: 42px;
+  margin: 0;
+}
+
+
+/*tag contenente il sign-up in fondo alla pagina, contenten un a href*/
+footer {
+  padding-top: 115px;
+  color: #999;
+  font-family: "Raleway";
+  font-weight: 400;
+}
+
+footer>p>a {
+  text-decoration: none;
+  color: #999;
+  border-bottom: 1px solid #999;
+}
+
+footer>p>a:visited {
+  text-decoration: none;
+}
+
+footer>p>a:hover {
+  border-color: rgb(187, 0, 187);
+  color: rgb(187, 0, 187);
+  transition: all 0.3s ease;
+}
+
+.focus-inputBox {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 0px;
+  color: #d33f8d;
+}
+
+/* animazione input icone */
+.inputBox:focus+.focus-inputBox {
+  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
+  animation: anim-shadow 0.5s ease-in-out forwards;
+}
+
+@-webkit-keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 70px 25px;
+    opacity: 0;
+  }
+}
+
+@keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 70px 25px;
+    opacity: 0;
+  }
+}
+
+/* stile icona input */
+.symbol-inputBox {
+  height: 100%;
+  width: 100%;
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  pointer-events: none;
+  transition: all 0.4s;
+  color: #999;
+}
+
+.inputBox:focus+.focus-inputBox+.symbol-inputBox {
+  color: #d33f8d;
+  padding-left: 20px;
+}
+
+/* errori input */
+.emailError,
+.passwordError {
+  z-index: 10;
+}
+
+/* punto esclamativo che evidenzia l'errore */
+.emailError::after,
+.passwordError::after {
+  content: "\f12a";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  color: #c80000;
+  font-size: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 13px;
+}
+
+/* fa apparire il messaggio di errore */
+.inputDivEmail:hover .labelErrorEmail {
+  visibility: visible;
+}
+
+.inputDivPassword:hover .labelErrorPassword {
+  visibility: visible;
+}
+
+/* messsaggio di errore */
+.labelErrorEmail {
+  display: block;
+  position: absolute;
+  color: #c80000;
+  font-size: 15px;
+  pointer-events: none;
+  background-color: white;
+  border: 1px solid #c80000;
+  border-radius: 5px;
+  top:10%;
+  left:29%;
+  bottom: 10%;
+  right:2%;
+  padding-right: 30px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  font-weight: normal;
+  visibility: hidden;
+  font-family: Raleway-SemiBold;
+}
+
+.labelErrorPassword {
+  display: block;
+  position: absolute;
+  color: #c80000;
+  font-size: 14px;
+  pointer-events: none;
+  background-color: white;
+  border: 1px solid #c80000;
+  border-radius: 5px;
+  top: 25%;
+  right: 2%;
+  padding-right: 30px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 6px;
+  font-weight: normal;
+  visibility: hidden;
+  font-family: Raleway-SemiBold;
+}
+
+/* stile form */
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* generali uguali per bottone e input */
+.inputDiv,
+.buttonDef {
+  /* padding: 0 30px; */
+  font-weight: bold;
+  line-height: 1.5;
+  width: 100%;
+  height: 62px;
+  border-radius: 5px;
+  font-size: 24px;
+}
+
+/* stile contenitore input */
+.inputDiv {
+  background-color: #e6e6e6;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+
+/* stile bottone */
+.buttonDef {
+  border: none;
+  background-color: #d33f8d;
+  color: white;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  margin-bottom: 0;
+  font-size:15px;
+}
+
+.buttonDef:hover{
+  background: #333333;
+}
+
+/* mediaquery */
+
+@media only screen and (max-width: 480px) {
+  .loginContainer,.registerContainer,.homeContainer{
+    width: 100%;
+    margin:10px;
+    overflow: auto;
+  }
+  .loginWith {
+    overflow: auto;
+  }
+}
